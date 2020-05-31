@@ -11,38 +11,48 @@ function task1($array, $par1 = false)
     }
 }
 
-function calcEverything(...$args)
+function calcEverything(string $action, ...$args)
 {
-    $operation = $args[0];
+    switch ($action) {
+        case '+':
+            echo implode($action, $args) . "=" . array_sum($args) . "<br>";
+            break;
+        case '-':
+            $arg1 = $args[0];
+            array_shift($args);
+            $instance = $arg1 . "-" . implode($action, $args);
+            $result = $arg1 - array_sum($args);
+            echo $instance . "=" . $result;
+            break;
+        case '*':
+            $result = 1;
 
-    if ($operation == "+") {
-        for ($i = 1; $i < sizeof($args); $i++) {
-            $result += $args[$i];
-        }
-    } elseif ($operation == "-") {
-        $result = $args[1];
-        for ($i = 2; $i < sizeof($args); ++$i) {
-            $result -= $args[$i];
-        }
-    } elseif ($operation == "*") {
-        $result = 1;
-        for ($i = 1; $i < sizeof($args); $i++) {
-            $result *= $args[$i];
-        }
-    } elseif ($operation == "/") {
-        if ($args[1] == 0) {
-            $result = 0;
-        } else {
-            $result = $args[1];
-            for ($i = 2; $i < sizeof($args); $i++) {
-                $result /= $args[$i];
+            for ($i = 0; $i < sizeof($args); $i++) {
+                $result *= $args[$i];
             }
-        }
+
+            echo implode($action, $args) . "=" . $result;
+            break;
+        case '/':
+            $arg1 = $args[0];
+            if ($arg1 == 0) {
+                echo 0;
+            } else {
+                array_shift($args);
+                $instance = $arg1 . "/" . implode($action, $args);
+                $result = $arg1;
+
+                for ($i = 0; $i < sizeof($args); $i++) {
+                    $result /= $args[$i];
+                }
+
+                echo $instance . "=" . $result;
+                break;
+            }
     }
-    echo $result;
 }
 
-function task3($row_num, $col_num)
+function task3(int $row_num, int $col_num)
 {
     if (is_int($row_num) and is_int($col_num)) {
         echo "<table style='border-collapse: collapse;'>";
@@ -59,7 +69,23 @@ function task3($row_num, $col_num)
     }
 }
 
-function task6($fname)
+function task4Date($option)
+{
+    if ($option == "current") {
+        date_default_timezone_set("Europe/Tallinn");
+        echo date("d.m.Y H:i") . "<br>";
+    } else {
+        echo strtotime($option) . "<br>";
+    }
+}
+
+function task6Create($file, $text)
+{
+    $fp = fopen($file, 'w');
+    fputs($fp, $text);
+    fclose($fp);
+}
+function task6Get($fname)
 {
     echo file_get_contents($fname);
 }

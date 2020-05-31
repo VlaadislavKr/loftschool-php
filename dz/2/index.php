@@ -2,23 +2,29 @@
 
 require("src/functions.php");
 
+//task1
 task1(array("str1", "str2", "str3"));
 echo task1(array("str1", "str2", "str3"), true);
 echo "<br><br>";
-calcEverything("+", 2, 3, 4);
+
+//task2
+calcEverything("/", 2, 3, 4);
+echo "<br><br>";
+
+//task3
 task3(6, 4);
+echo "<br>";
 
-date_default_timezone_set("Europe/Tallinn");
-echo date("d.m.Y H:i");
-echo strtotime("24.02.2016 00:00:00");
+//task4
+task4Date("current");
+task4Date("24.02.2016 00:00:00");
+echo "<br>";
 
-$str = "Карл у Клары украл Кораллы";
-var_dump(str_replace("К", "", $str));
-$str = "Две бутылки лимонада";
-var_dump(str_replace("Две", "Три", $str));
+//task5
+echo str_replace("К", "", "Карл у Клары украл Кораллы")."<br>";
+echo str_replace("Две", "Три", "Две бутылки лимонада");
+echo "<br><br>";
 
-$fp = fopen("test.txt", w);
-fputs($fp, "Hello again!");
-fclose($fp);
-
-task6("test.txt");
+//task6
+task6Create("test.txt", "Hello again!");
+task6Get("test.txt");
