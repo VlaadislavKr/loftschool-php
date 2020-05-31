@@ -1,8 +1,8 @@
 <?php
 
-const RISUNKOV = 80;
-const FLOMASTERAMI = 23;
-const KARANDASHAMI = 40;
+const IMAGES = 80;
+const FELT_PEN = 23;
+const PENCIL = 40;
 
-$kraskami = RISUNKOV - FLOMASTERAMI - KARANDASHAMI;
-echo "Красками выполнено было $kraskami рисунков";
+$paints = IMAGES - FELT_PEN - PENCIL;
+echo "Красками выполнено было $paints рисунков";

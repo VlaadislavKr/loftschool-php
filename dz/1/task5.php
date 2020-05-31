@@ -11,8 +11,3 @@ foreach ($arr as $key => $value) {
     echo "{$value['model']} {$value['speed']} {$value['doors']} {$value['year']}";
     echo "<br><br>";
 }
-
-
-//echo "<pre>";
-//var_dump($arr);
-//echo "</pre>";

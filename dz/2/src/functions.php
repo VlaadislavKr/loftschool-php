@@ -11,34 +11,33 @@ function task1($array, $par1 = false)
     }
 }
 
-function calcEverything(... $args)
+function calcEverything(...$args)
 {
     $operation = $args[0];
 
-    if($operation == "+") {
-        for($i = 1; $i < sizeof($args); $i++) {
+    if ($operation == "+") {
+        for ($i = 1; $i < sizeof($args); $i++) {
             $result += $args[$i];
         }
-    } elseif($operation == "-") {
+    } elseif ($operation == "-") {
         $result = $args[1];
-        for($i = 2; $i < sizeof($args); ++$i) {
+        for ($i = 2; $i < sizeof($args); ++$i) {
             $result -= $args[$i];
         }
-    } elseif($operation == "*") {
+    } elseif ($operation == "*") {
         $result = 1;
-        for($i = 1; $i < sizeof($args); $i++) {
+        for ($i = 1; $i < sizeof($args); $i++) {
             $result *= $args[$i];
         }
-    } elseif($operation == "/") {
-        if($args[1] == 0) {
+    } elseif ($operation == "/") {
+        if ($args[1] == 0) {
             $result = 0;
         } else {
             $result = $args[1];
-            for($i = 2; $i < sizeof($args); $i++) {
+            for ($i = 2; $i < sizeof($args); $i++) {
                 $result /= $args[$i];
             }
         }
-
     }
     echo $result;
 }

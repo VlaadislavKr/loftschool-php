@@ -6,9 +6,9 @@ for ($row = 1; $row < 11; $row++) {
     for ($col = 1; $col < 11; $col++) {
         $result = $row * $col;
         echo "<td style='border:1px solid;padding:5px;'>";
-        if ((($row % 2) == 0) and (($col % 2) == 0)) {
+        if ((($row % 2) == 0) && (($col % 2) == 0)) {
             echo "($result)";
-        } elseif ((($row % 2) !== 0) and (($col % 2) !== 0) and ($row != 1) and ($col != 1)) {
+        } elseif ((($row % 2) !== 0) && (($col % 2) !== 0) && ($row != 1) && ($col != 1)) {
             echo "[$result]";
         } else {
             echo "$result";
